@@ -22,7 +22,7 @@ let roundsWon;
         return selection;
     }
 
-    console.log(getBotChoice());
+    console.log("Bot generated: " + getBotChoice());
 
 
 // create function that asks user for RPS choice
@@ -30,7 +30,7 @@ function getUserChoice() {
     return prompt("Which hand will you play? (rock, paper or scissors)");
 }
 
-console.log(getUserChoice());
+console.log("User returned: " + getUserChoice());
 
 // if user and bot choices are identical, restart round
 
