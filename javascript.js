@@ -6,7 +6,7 @@ let roundsWon;
 
 
 
-// create function that generates RPS choice for bot and stores in corresponding variable 
+// create function that generates RPS choice for bot 
     function getBotChoice() {
         let num = Math.random();
         let selection;
@@ -25,10 +25,12 @@ let roundsWon;
     console.log(getBotChoice());
 
 
+// create function that asks user for RPS choice
+function getUserChoice() {
+    return prompt("Which hand will you play? (rock, paper or scissors)");
+}
 
-
-
-// create function that asks user for RPS choice and stores in corresponding variable
+console.log(getUserChoice());
 
 // if user and bot choices are identical, restart round
 
