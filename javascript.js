@@ -1,5 +1,5 @@
 // create an integer variable for rounds played
-let roundsPlayed = 0;
+let roundNumber = 1;
 
 // create integer variables to track bot/user wins
 let userWins = 0;
@@ -36,15 +36,12 @@ function getUserChoice() {
 
 
 
-// compare user and bot choices to determine round winner
+// compare user and bot choices, increment win and games-played variables
 function playRound() {
     let userChoice = getUserChoice();
     let botChoice = getBotChoice();
     let gameState = userChoice + " vs " + botChoice;
 
-    roundsPlayed++;
-
-    // if choices are equal, restart function
     if (userChoice == botChoice) {
         console.log("Its a DRAW!")
     } else {
@@ -73,16 +70,23 @@ function playRound() {
     }
 }
 
-playRound();
 
-// increment user-wins or bot-wins integer variable
 
-// increment games played variable
+// play 5 rounds and announce the match results
+    function playMatch() {
+        while (roundNumber <= 5) {
+            console.log("-----ROUND " + roundNumber + "-----")
+            playRound();
+            roundNumber++;
+        }
 
-// start a new round
+        console.log("-----FINAL SCORE-----");
+        console.log("User won: " + userWins);
+        console.log("Bot won: " + botWins);
 
-// announce result once a player reaches 3 wins
+    }
 
+playMatch();
 
 
 // QUESTIONS / CONCERNS
