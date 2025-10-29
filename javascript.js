@@ -7,7 +7,6 @@ let botWins = 0;
 
 
 
-
 // create function that generates RPS choice for bot 
     function getBotChoice() {
         let num = Math.random();
@@ -21,33 +20,70 @@ let botWins = 0;
             selection = "scissors";
         }
 
-        return selection;
+        console.log("Bot generated: " + selection);
+        return selection.toLowerCase();
     }
 
-    console.log("Bot generated: " + getBotChoice());
+    
 
 
 // create function that asks user for RPS choice
 function getUserChoice() {
-    return prompt("Which hand will you play? (rock, paper or scissors)");
+    let selection = prompt("Which hand will you play? (rock, paper or scissors)");
+    console.log("User returned: " + selection);
+    return selection.toLowerCase();
 }
 
-console.log("User returned: " + getUserChoice());
 
-// if user and bot choices are identical, restart round
 
-// compare user and bot choices to determine round winner
+// compare user and bot choices to determine round winner, restart on tie
+function playRound() {
+    let userChoice = getUserChoice();
+    let botChoice = getBotChoice();
+    let gameState = userChoice + " vs " + botChoice;
 
-// create and/or increment rounds-won as an integer variable
+    // if choices are equal, restart function
+    if (userChoice == botChoice) {
+        console.log("Its a DRAW!")
+    } else {
+        switch (gameState) {
+            case "rock vs scissors":
+                userWins++;
+                console.log("You smashed em! (WIN)");
+                break;
+
+            case "paper vs rock":
+                userWins++;
+                console.log("Its a wrap! (WIN)");
+                break;
+
+            case "scissors vs paper":
+                userWins++;
+                console.log("Cutting edge stratedgy! (WIN)");
+                break;
+
+            default:
+                botWins++;
+                console.log("You LOST!")
+                break;
+
+        }
+    }
+}
+
+playRound();
+
+// increment user-wins or bot-wins integer variable
 
 // increment games played variable
 
 // start a new round
 
-// announce winner after 5 rounds
+// announce result once a player reaches 3 wins
 
 
 
-// QUESTIONS
+// QUESTIONS / CONCERNS
 // Q. how do i want to handle round ties? A. restart round
 // Q. how do i want to handle match ties? A. match ties not possible
+// Adjust round win/loss message to state current match score
