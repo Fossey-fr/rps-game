@@ -1,5 +1,5 @@
 // create an integer variable for rounds played
-let roundsPlayed;
+let roundsPlayed = 0;
 
 // create integer variables to track bot/user wins
 let userWins = 0;
@@ -44,26 +44,31 @@ function playRound() {
 
     // if choices are equal, restart function
     if (userChoice == botChoice) {
+        roundsPlayed++;
         console.log("Its a DRAW!")
     } else {
         switch (gameState) {
             case "rock vs scissors":
                 userWins++;
+                roundsPlayed++;
                 console.log("You smashed em! (WIN)");
                 break;
 
             case "paper vs rock":
                 userWins++;
+                roundsPlayed++;
                 console.log("Its a wrap! (WIN)");
                 break;
 
             case "scissors vs paper":
                 userWins++;
+                roundsPlayed++;
                 console.log("Cutting edge stratedgy! (WIN)");
                 break;
 
             default:
                 botWins++;
+                roundsPlayed++;
                 console.log("You LOST!")
                 break;
 
