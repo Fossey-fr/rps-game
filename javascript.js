@@ -36,39 +36,36 @@ function getUserChoice() {
 
 
 
-// compare user and bot choices to determine round winner, restart on tie
+// compare user and bot choices to determine round winner
 function playRound() {
     let userChoice = getUserChoice();
     let botChoice = getBotChoice();
     let gameState = userChoice + " vs " + botChoice;
 
+    roundsPlayed++;
+
     // if choices are equal, restart function
     if (userChoice == botChoice) {
-        roundsPlayed++;
         console.log("Its a DRAW!")
     } else {
         switch (gameState) {
             case "rock vs scissors":
                 userWins++;
-                roundsPlayed++;
                 console.log("You smashed em! (WIN)");
                 break;
 
             case "paper vs rock":
                 userWins++;
-                roundsPlayed++;
                 console.log("Its a wrap! (WIN)");
                 break;
 
             case "scissors vs paper":
                 userWins++;
-                roundsPlayed++;
                 console.log("Cutting edge stratedgy! (WIN)");
                 break;
 
             default:
                 botWins++;
-                roundsPlayed++;
                 console.log("You LOST!")
                 break;
 
