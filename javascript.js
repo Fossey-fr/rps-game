@@ -20,7 +20,7 @@ let botWins = 0;
             selection = "scissors";
         }
 
-        console.log("Bot generated: " + selection);
+        console.log("Bot: " + selection);
         return selection.toLowerCase();
     }
 
@@ -30,7 +30,7 @@ let botWins = 0;
 // create function that asks user for RPS choice
 function getUserChoice() {
     let selection = prompt("Which hand will you play? (rock, paper or scissors)");
-    console.log("User returned: " + selection);
+    console.log("User: " + selection);
     return selection.toLowerCase();
 }
 
@@ -43,27 +43,27 @@ function playRound() {
     let gameState = userChoice + " vs " + botChoice;
 
     if (userChoice == botChoice) {
-        console.log("Its a DRAW!")
+        console.log("(DRAW)")
     } else {
         switch (gameState) {
             case "rock vs scissors":
                 userWins++;
-                console.log("You smashed em! (WIN)");
+                console.log("(WIN)");
                 break;
 
             case "paper vs rock":
                 userWins++;
-                console.log("Its a wrap! (WIN)");
+                console.log("(WIN)");
                 break;
 
             case "scissors vs paper":
                 userWins++;
-                console.log("Cutting edge stratedgy! (WIN)");
+                console.log("(WIN)");
                 break;
 
             default:
                 botWins++;
-                console.log("You LOST!")
+                console.log("(LOSE)")
                 break;
 
         }
