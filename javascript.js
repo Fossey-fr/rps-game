@@ -84,6 +84,7 @@ playRound();
 
 
 // QUESTIONS / CONCERNS
-// Q. how do i want to handle round ties? A. restart round
+// Q. how do i want to handle round ties? A. counts as a draw.
 // Q. how do i want to handle match ties? A. match ties not possible
 // Adjust round win/loss message to state current match score
+// Warn players when they could be mathmatically eliminated and end match prematurely if so.
