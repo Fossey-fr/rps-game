@@ -1,7 +1,9 @@
 // create an integer variable for rounds played
 let roundsPlayed;
-// create an integer variable for rounds won
-let roundsWon;
+
+// create integer variables to track bot/user wins
+let userWins = 0;
+let botWins = 0;
 
 
 
