@@ -72,18 +72,3 @@ function playRound() {
 
 
 
-// play 5 rounds and announce the match results
-    function playMatch() {
-        while (roundNumber <= 5) {
-            console.log("-----ROUND " + roundNumber + "-----")
-            playRound();
-            roundNumber++;
-        }
-
-        console.log("-----FINAL SCORE-----");
-        console.log("User won: " + userWins);
-        console.log("Bot won: " + botWins);
-
-    }
-
-playMatch();
