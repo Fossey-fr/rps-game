@@ -66,7 +66,14 @@ function playRound(rpsChoice) {
         }
     }
     divider.textContent = "--------------------------------";
-    scoreDisplay.textContent = "User score: " + userWins + " | Bot score: " + botWins;
+
+    if (userWins == 5) {
+        scoreDisplay.textContent = "USER WINS " + userWins + "-" + botWins;
+    } else if (botWins == 5) {
+        scoreDisplay.textContent = "BOT WINS " + botWins + "-" + userWins
+    } else {
+        scoreDisplay.textContent = "User score: " + userWins + " | Bot score: " + botWins;
+    }
 }
 
 // play round when user makes selection
