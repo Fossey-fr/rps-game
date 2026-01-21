@@ -20,27 +20,19 @@ let botWins = 0;
             selection = "scissors";
         }
 
-        console.log("Bot: " + selection);
         return selection.toLowerCase();
     }
-
-    
-
-
-// create function that asks user for RPS choice
-function getUserChoice() {
-    let selection = prompt("Which hand will you play? (rock, paper or scissors)");
-    console.log("User: " + selection);
-    return selection.toLowerCase();
-}
 
 
 
 // compare user and bot choices, increment win and games-played variables
-function playRound() {
-    let userChoice = getUserChoice();
+function playRound(rpsChoice) {
+    let userChoice = rpsChoice;
     let botChoice = getBotChoice();
     let gameState = userChoice + " vs " + botChoice;
+
+    console.log("Human: " + userChoice);
+    console.log("Robot: " + botChoice);
 
     if (userChoice == botChoice) {
         console.log("(DRAW)")
@@ -69,6 +61,14 @@ function playRound() {
         }
     }
 }
+
+const btn = document.querySelectorAll("button");
+
+btn.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.textContent.toLowerCase());
+    });
+});
 
 
 
