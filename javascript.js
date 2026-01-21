@@ -5,6 +5,13 @@ let roundNumber = 1;
 let userWins = 0;
 let botWins = 0;
 
+// init nodes
+const btn = document.querySelectorAll("button");
+const userChoiceDisplay = document.querySelector("#userChoice");
+const botChoiceDisplay = document.querySelector("#botChoice");
+const roundResultDisplay = document.querySelector("#roundResult");
+const scoreDisplay = document.querySelector("#score");
+const divider = document.querySelector("#divider");
 
 
 // create function that generates RPS choice for bot 
@@ -23,47 +30,46 @@ let botWins = 0;
         return selection.toLowerCase();
     }
 
-
-
 // compare user and bot choices, increment win and games-played variables
 function playRound(rpsChoice) {
     let userChoice = rpsChoice;
     let botChoice = getBotChoice();
     let gameState = userChoice + " vs " + botChoice;
 
-    console.log("Human: " + userChoice);
-    console.log("Robot: " + botChoice);
+    userChoiceDisplay.textContent = "User: " + userChoice;
+    botChoiceDisplay.textContent = "Bot: " + botChoice;
 
     if (userChoice == botChoice) {
-        console.log("(DRAW)")
+        roundResultDisplay.textContent = "DRAW";
     } else {
         switch (gameState) {
             case "rock vs scissors":
                 userWins++;
-                console.log("(WIN)");
+                roundResultDisplay.textContent = "WIN";
                 break;
 
             case "paper vs rock":
                 userWins++;
-                console.log("(WIN)");
+                roundResultDisplay.textContent = "WIN";
                 break;
 
             case "scissors vs paper":
                 userWins++;
-                console.log("(WIN)");
+                roundResultDisplay.textContent = "WIN";
                 break;
 
             default:
                 botWins++;
-                console.log("(LOSE)")
+                roundResultDisplay.textContent = "LOSE";
                 break;
 
         }
     }
+    divider.textContent = "--------------------------------";
+    scoreDisplay.textContent = "User score: " + userWins + " | Bot score: " + botWins;
 }
 
-const btn = document.querySelectorAll("button");
-
+// play round when user makes selection
 btn.forEach((button) => {
     button.addEventListener("click", () => {
         playRound(button.textContent.toLowerCase());
