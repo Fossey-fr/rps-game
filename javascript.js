@@ -33,9 +33,6 @@ function playRound(rpsChoice) {
     let gameState = userChoice + " vs " + botChoice;
 
     if (userWins == 5 || botWins == 5) {
-        //console.log("IF STATEMENT RETURNED TRUE");
-        console.log("BEFORE OPERATIONS: userWins=" + userWins + " & botWins=" + botWins);
-        //console.log(userChoice + "/" + botChoice);
         userWins = 0;
         botWins = 0;
     };
