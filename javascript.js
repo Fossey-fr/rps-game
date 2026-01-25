@@ -1,6 +1,3 @@
-// create an integer variable for rounds played
-let roundNumber = 1;
-
 // create integer variables to track bot/user wins
 let userWins = 0;
 let botWins = 0;
@@ -26,15 +23,22 @@ const divider = document.querySelector("#divider");
         } else { 
             selection = "scissors";
         }
-
         return selection.toLowerCase();
     }
 
-// compare user and bot choices, increment win and games-played variables
+// compare user and bot choices, increment one win variable
 function playRound(rpsChoice) {
     let userChoice = rpsChoice;
     let botChoice = getBotChoice();
     let gameState = userChoice + " vs " + botChoice;
+
+    if (userWins == 5 || botWins == 5) {
+        //console.log("IF STATEMENT RETURNED TRUE");
+        console.log("BEFORE OPERATIONS: userWins=" + userWins + " & botWins=" + botWins);
+        //console.log(userChoice + "/" + botChoice);
+        userWins = 0;
+        botWins = 0;
+    };
 
     userChoiceDisplay.textContent = "User: " + userChoice;
     botChoiceDisplay.textContent = "Bot: " + botChoice;
@@ -74,7 +78,7 @@ function playRound(rpsChoice) {
     } else {
         scoreDisplay.textContent = "User score: " + userWins + " | Bot score: " + botWins;
     }
-}
+};
 
 // play round when user makes selection
 btn.forEach((button) => {
@@ -82,6 +86,3 @@ btn.forEach((button) => {
         playRound(button.textContent.toLowerCase());
     });
 });
-
-
-
